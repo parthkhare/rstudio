@@ -69,6 +69,8 @@ ChunkOutputType chunkOutputType(const FilePath& outputPath)
       outputType = ChunkOutputHtml;
    else if (outputPath.extensionLowerCase() == ".error")
       outputType = ChunkOutputError;
+   else if (outputPath.extensionLowerCase() == ".rdata")
+      outputType = ChunkOutputData;
    return outputType;
 }
 
@@ -84,6 +86,8 @@ std::string chunkOutputExt(ChunkOutputType outputType)
          return ".html";
       case ChunkOutputError:
          return ".error";
+      case ChunkOutputData:
+         return ".rdata";
       default: 
          return "";
    }
